@@ -1,49 +1,68 @@
-# DeepSeek AI VS Code Extension
+# DeepSeek AI Chat - VS Code Extension
 
-This is a **VS Code extension** that allows you to chat with **DeepSeek AI** directly inside your editor.
+This VS Code extension allows you to chat with **DeepSeek AI** directly from your editor. It leverages [Ollama](https://ollama.com) to run the AI model locally on your device.
 
-## 🚀 Installation & Setup
+## 🚀 Setup Instructions
 
 ### 1️⃣ Install Ollama
-To run DeepSeek AI locally, you need to install **Ollama**:
+First, install Ollama on your system by downloading it from [ollama.com](https://ollama.com).
 
-➡️ **Download and install Ollama** from [the official website](https://ollama.com).
+### 2️⃣ Pull the DeepSeek Model
+Choose a model version from the [DeepSeek Model Library](https://ollama.com/library/deepseek-r1) and pull it using the command:
 
-### 2️⃣ Select and Download a Model
-DeepSeek AI offers multiple model sizes. Choose one from the **[DeepSeek model library](https://ollama.com/library/deepseek-r1)** and install it.
-
-For example, to install the smallest model (**1.5B** parameters), run:
+For example, to install the **smallest (1.5B) model**, run:
 ```sh
-ollama run deepseek-r1:1.5b
+ollama pull deepseek-r1:1.5b
 ```
-This will download the model if it's not already installed.
+Or, for the **larger (7B) model**:
+```sh
+ollama pull deepseek-r1:7b
+```
 
-### 3️⃣ Run the Extension in VS Code
-
-#### 🔹 Start Debugging the Extension
-1. Open the extension project in **VS Code**.
-2. Press **Cmd + P** (or **Ctrl + P** on Windows/Linux) and type:
+### 3️⃣ Run the VS Code Extension
+1. Open VS Code.
+2. Press **Cmd + P** (**Ctrl + P** on Windows/Linux) and search for:
    ```
    >Debug: Select and Start Debugging
    ```
-3. Choose the **Run Extension** option.
-4. This will open a new VS Code window where the extension is running.
-
-#### 🔹 Start a Chat with DeepSeek AI
-1. In the **new VS Code window**, press **Cmd + P** (or **Ctrl + P**) and type:
+3. In the new VS Code window, press **Cmd + P** (**Ctrl + P**) and search for:
    ```
    >Chat with DeepSeek
    ```
-2. A chat window will open where you can interact with DeepSeek AI!
+4. Start chatting with DeepSeek AI! 🎉
+
+## ⚠️ Important: Update the Code with Your Installed Model
+
+In the extension code, **make sure to specify the model you installed**. Modify this part accordingly:
+
+```typescript
+const streamResponse = await ollama.chat({
+  model: "deepseek-r1:1.5b", // update here with the DeepSeek model you've installed
+  messages: [{ role: "user", content: userPrompt }],
+  stream: true,
+});
+```
+
+If you've installed a different model version (e.g., `7b`), change the line to:
+```typescript
+model: "deepseek-r1:7b"
+```
+
+## ✅ Verify Model Installation
+If you encounter an error like:
+```
+Error: ResponseError: model "deepseek-r1:latest" not found, try pulling it first
+```
+Make sure to run:
+```sh
+ollama list
+```
+This should show the installed models. If the model isn't listed, **go back to Step 2 and pull it again**.
 
 ## 🛠️ Features
 - **Chat with DeepSeek AI** directly in VS Code
 - **Streamed responses** for a smoother experience
 - **Supports multiple DeepSeek model sizes** (1.5B, 7B, etc.)
 
-## 📌 Notes
-- Make sure **Ollama** is running in the background.
-- If you encounter issues, try restarting VS Code or running `ollama run deepseek-r1:1.5b` again to ensure the model is loaded.
-
-Happy coding! 🚀
-
+---
+Enjoy chatting with DeepSeek AI inside VS Code! 🚀

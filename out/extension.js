@@ -51,7 +51,7 @@ function activate(context) {
                 let responseText = "";
                 try {
                     const streamResponse = await ollama_1.default.chat({
-                        model: "deepseek-r1:latest",
+                        model: "deepseek-r1:1.5b", // update here with the deepseek model you've installed
                         messages: [{ role: "user", content: userPrompt }],
                         stream: true,
                     });
