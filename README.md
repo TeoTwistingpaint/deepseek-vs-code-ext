@@ -1,71 +1,49 @@
-# deepseek-ext README
+# DeepSeek AI VS Code Extension
 
-This is the README for your extension "deepseek-ext". After writing up a brief description, we recommend including the following sections.
+This is a **VS Code extension** that allows you to chat with **DeepSeek AI** directly inside your editor.
 
-## Features
+## 🚀 Installation & Setup
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+### 1️⃣ Install Ollama
+To run DeepSeek AI locally, you need to install **Ollama**:
 
-For example if there is an image subfolder under your extension project workspace:
+➡️ **Download and install Ollama** from [the official website](https://ollama.com).
 
-\!\[feature X\]\(images/feature-x.png\)
+### 2️⃣ Select and Download a Model
+DeepSeek AI offers multiple model sizes. Choose one from the **[DeepSeek model library](https://ollama.com/library/deepseek-r1)** and install it.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+For example, to install the smallest model (**1.5B** parameters), run:
+```sh
+ollama run deepseek-r1:1.5b
+```
+This will download the model if it's not already installed.
 
-## Requirements
+### 3️⃣ Run the Extension in VS Code
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+#### 🔹 Start Debugging the Extension
+1. Open the extension project in **VS Code**.
+2. Press **Cmd + P** (or **Ctrl + P** on Windows/Linux) and type:
+   ```
+   >Debug: Select and Start Debugging
+   ```
+3. Choose the **Run Extension** option.
+4. This will open a new VS Code window where the extension is running.
 
-## Extension Settings
+#### 🔹 Start a Chat with DeepSeek AI
+1. In the **new VS Code window**, press **Cmd + P** (or **Ctrl + P**) and type:
+   ```
+   >Chat with DeepSeek
+   ```
+2. A chat window will open where you can interact with DeepSeek AI!
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+## 🛠️ Features
+- **Chat with DeepSeek AI** directly in VS Code
+- **Streamed responses** for a smoother experience
+- **Supports multiple DeepSeek model sizes** (1.5B, 7B, etc.)
 
-For example:
+## 📌 Notes
+- Make sure **Ollama** is running in the background.
+- If you encounter issues, try restarting VS Code or running `ollama run deepseek-r1:1.5b` again to ensure the model is loaded.
 
-This extension contributes the following settings:
+Happy coding! 🚀
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
